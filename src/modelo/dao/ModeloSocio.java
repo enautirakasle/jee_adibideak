@@ -1,5 +1,6 @@
 package modelo.dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -58,6 +59,35 @@ public class ModeloSocio extends Conexion{
 
 	public Socio select(String dni) {
 		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public Socio select(int id) {
+		ArrayList<Socio> socios = new ArrayList<Socio>();
+		
+		try {
+			PreparedStatement pst = conexion.prepareStatement("select * from socios where id=?");
+			pst.setInt(1, id);
+			ResultSet rs = pst.executeQuery();
+			
+			Socio socio;
+			if (rs.next()) {
+				
+				socio = new Socio();
+				socio.setId(rs.getInt("id"));
+				socio.setNombre(rs.getString("nombre"));
+				socio.setApellido(rs.getString("nombre"));
+				socio.setDni(rs.getString("nombre"));
+				socio.setDireccion(rs.getString("direccion"));
+				socio.setPoblacion(rs.getString("poblacion"));
+				socio.setProvincia(rs.getString("provincia"));
+				
+				return socio;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
