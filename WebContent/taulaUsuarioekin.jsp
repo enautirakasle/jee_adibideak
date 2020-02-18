@@ -39,16 +39,18 @@
     	<tr>
     		<th>izena</th>
     		<th>dni</th>
-    		<th>admin</th>
     	</tr>
     	
     	<%
     	for(int i = 0; i<usuarios.size();i++){
     		Usuario usuario = usuarios.get(i);
-    		out.println("<tr>");
+    		if(usuario.isAdmin()){
+    			out.println("<tr class='table-info'>");
+    		}else{
+    			out.println("<tr>");
+    		}
     		out.println("<td>"+ usuario.getNombre() +"</td>");
     		out.println("<td>"+ usuario.getDni() +"</td>");
-    		out.println("<td>"+ usuario.isAdmin() +"</td>");
     		out.println("</tr>");
     	}
     	%>
