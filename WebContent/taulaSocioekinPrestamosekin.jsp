@@ -31,50 +31,55 @@
 <body>
 
 	<div class="container">
-		<%
-			for (int i = 0; i < socios.size(); i++) {
-				Socio socio = socios.get(i);
-		%>
-		<div class="jumbotron">
-			<%=socio.getNombre()%>
-			<%=socio.getApellido()%><br>
-
-			<table class="table">
-			<tr>
-				<th>Fecha</th>
-				<th>Devuelto</th>
-				<th>Titulo</th>
-				<th>Autor</th>
-			</tr>
+		<div class="row">
+			<div class="col-12">
 				<%
-					ArrayList<Prestamo> prestamos = socio.getPrestamos();
-						if (prestamos.size() == 0) {
+					for (int i = 0; i < socios.size(); i++) {
+						Socio socio = socios.get(i);
 				%>
+				<div class="jumbotron  mt-3">
+					<%=socio.getNombre()%>
+					<%=socio.getApellido()%><br>
+					<%
+						ArrayList<Prestamo> prestamos = socio.getPrestamos();
+							if (prestamos.size() == 0) {
+					%>
 
-				<div class="alert alert-light" role="alert">
-					No tiene ningun prestamo.
+					<div class="alert alert-light" role="alert">
+						No tiene ningun prestamo.
+					</div>
+					<%
+							} else {
+					%>
+					<table class="table">
+						<tr>
+							<th>Fecha</th>
+							<th>Devuelto</th>
+							<th>Titulo</th>
+							<th>Autor</th>
+						</tr>
+						<%
+							for (int j = 0; j < prestamos.size(); j++) {
+										Prestamo prestamo = prestamos.get(j);
+						%>
+						<tr>
+							<td><%=prestamo.getFecha()%></td>
+							<td><%=prestamo.isDevuelto()%></td>
+							<td><%=prestamo.getLibro().getTitulo()%></td>
+							<td><%=prestamo.getLibro().getAutor()%></td>
+						</tr>
+
+						<%
+							}
+								}
+						%>
+					</table>
 				</div>
 				<%
-					}
-						for (int j = 0; j < prestamos.size(); j++) {
-							Prestamo prestamo = prestamos.get(j);
+					} //for socios
 				%>
-				<tr>
-					<td><%=prestamo.getFecha()%></td>
-					<td><%=prestamo.isDevuelto()%></td>
-					<td><%=prestamo.getLibro().getTitulo()%></td>
-					<td><%=prestamo.getLibro().getAutor()%></td>
-				</tr>
-
-				<%
-					}
-				%>
-			</table>
+			</div>
 		</div>
-		<%
-			} //for socios
-		%>
-
 	</div>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
