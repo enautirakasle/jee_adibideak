@@ -35,8 +35,8 @@ public class ModeloSocio extends Conexion{
 				socio = new Socio();
 				socio.setId(rs.getInt("id"));
 				socio.setNombre(rs.getString("nombre"));
-				socio.setApellido(rs.getString("nombre"));
-				socio.setDni(rs.getString("nombre"));
+				socio.setApellido(rs.getString("apellido"));
+				socio.setDni(rs.getString("dni"));
 				socio.setDireccion(rs.getString("direccion"));
 				socio.setPoblacion(rs.getString("poblacion"));
 				socio.setProvincia(rs.getString("provincia"));
@@ -76,8 +76,8 @@ public class ModeloSocio extends Conexion{
 				socio = new Socio();
 				socio.setId(rs.getInt("id"));
 				socio.setNombre(rs.getString("nombre"));
-				socio.setApellido(rs.getString("nombre"));
-				socio.setDni(rs.getString("nombre"));
+				socio.setApellido(rs.getString("apellido"));
+				socio.setDni(rs.getString("dni"));
 				socio.setDireccion(rs.getString("direccion"));
 				socio.setPoblacion(rs.getString("poblacion"));
 				socio.setProvincia(rs.getString("provincia"));
