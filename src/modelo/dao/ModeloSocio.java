@@ -10,10 +10,10 @@ import modelo.bean.Socio;
 
 
 
-public class ModeloSocio extends Conexion{
+public class ModeloSocio extends Conector{
 
-	public ModeloSocio(String host, String bbdd, String usuario, String contrasenia) {
-		super(host, bbdd, usuario, contrasenia);
+	public ModeloSocio() {
+		super();
 	}
 	
 	/*
@@ -50,6 +50,39 @@ public class ModeloSocio extends Conexion{
 		}
 		return socios;
 		
+	}
+	
+	public ArrayList<Socio> selectConPrestamos(){
+		ModeloPrestamo modeloPrestamo = new ModeloPrestamo();
+		
+		ArrayList<Socio> socios = new ArrayList<Socio>();
+		Statement st;
+		try {
+			st = conexion.createStatement();
+			ResultSet rs = st.executeQuery("select * from socios");
+
+			Socio socio;
+			while (rs.next()) {
+				
+				socio = new Socio();
+				socio.setId(rs.getInt("id"));
+				socio.setNombre(rs.getString("nombre"));
+				socio.setApellido(rs.getString("apellido"));
+				socio.setDni(rs.getString("dni"));
+				socio.setDireccion(rs.getString("direccion"));
+				socio.setPoblacion(rs.getString("poblacion"));
+				socio.setProvincia(rs.getString("provincia"));
+				
+				socio.setPrestamos(modeloPrestamo.prestamosDeSocio(socio.getId()));
+				
+				socios.add(socio);
+				
+			}
+			return socios;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return socios;
 	}
 
 	public ArrayList<Socio> selectLike(String parte) {

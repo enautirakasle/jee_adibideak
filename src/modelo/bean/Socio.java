@@ -1,5 +1,7 @@
 package modelo.bean;
 
+import java.util.ArrayList;
+
 public class Socio {
 
 	private int id;
@@ -9,6 +11,8 @@ public class Socio {
 	private String dni;
 	private String provincia;
 	private String poblacion;
+	
+	private ArrayList<Prestamo> prestamos;
 	
 	public Socio(){
 		
@@ -20,12 +24,6 @@ public class Socio {
 		this.apellido = apellido;
 	}
 	
-	@Override
-	public String toString() {
-		return "Socio [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion
-				+ ", dni=" + dni + ", provincia=" + provincia + ", poblacion=" + poblacion + "]";
-	}
-
 	public int getId() {
 		return id;
 	}
@@ -82,7 +80,21 @@ public class Socio {
 		this.poblacion = poblacion;
 	}
 
+	public ArrayList<Prestamo> getPrestamos() {
+		return prestamos;
+	}
 
+	public void setPrestamos(ArrayList<Prestamo> prestamos) {
+		this.prestamos = prestamos;
+	}
+
+	@Override
+	public String toString() {
+		return "Socio [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion
+				+ ", dni=" + dni + ", provincia=" + provincia + ", poblacion=" + poblacion + "]";
+	}
+
+	
 	
 	
 	
