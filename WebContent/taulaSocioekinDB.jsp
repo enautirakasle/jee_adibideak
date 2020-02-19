@@ -6,7 +6,7 @@
 <%@page import="modelo.bean.Socio" %>
  
  <%
- ModeloSocio modeloSocio = new ModeloSocio("localhost", "biblioteca", "root", "");
+ ModeloSocio modeloSocio = new ModeloSocio();
  ArrayList<Socio> socios = modeloSocio.selectAll();
  %>
 
