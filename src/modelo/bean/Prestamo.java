@@ -44,6 +44,10 @@ public class Prestamo {
 		return "Prestamo [fecha=" + fecha + ", devuelto=" + devuelto + ", socio=" + socio + ", libro=" + libro + "]";
 	}
 	
+	public String infoConLibro() {
+		return "Prestamo [fecha=" + fecha + ", devuelto=" + devuelto + ", libro=" + libro.getTitulo() + ", autor=" + libro.getAutor() + "]";
+	}
+	
 	
 	
 	

@@ -53,4 +53,11 @@ public class Libro {
 		this.prestamos = prestamos;
 	}
 
+	@Override
+	public String toString() {
+		return "Libro [id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", numeroPaginas=" + numeroPaginas + "]";
+	}
+	
+	
+
 }
