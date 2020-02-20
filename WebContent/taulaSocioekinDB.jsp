@@ -26,10 +26,26 @@
   <body>
   
   	<div class="container">
-    	
-   	<%
-   	out.println(socios);
-   	%>
+  	<div class="row">
+  	
+    	<%for(int i = 0; i< socios.size(); i++){ 
+    	Socio socio = socios.get(i);
+    	%>
+    	<div class="col-3 mb-3 mt-3">
+	   	<div class="card">
+		  	<img src="images/Captura1.PNG" class="card-img-top" alt="..." style="width:100%">
+		  	<div class="card-body">
+		    <h5 class="card-title"><%=socio.getNombre() %> <%=socio.getApellido() %></h5>
+		    <p class="card-text">Dni: <%=socio.getDni() %></p>
+		    <p class="card-text">Direccion: <%=socio.getDireccion() %></p>
+		    <p class="card-text">Poblacion: <%=socio.getPoblacion() %> <%=socio.getProvincia() %></p>
+	  		</div>
+	  	</div>
+	  	</div>
+  	
+  	<%}//for bukaera %>
+  </div>
+</div>
     	
     	
     	
