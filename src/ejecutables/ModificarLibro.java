@@ -46,7 +46,7 @@ public class ModificarLibro {
 			System.out.println("Libro modificado");
 			
 		}else {
-			System.out.println("el libro " + titulo + " ya existe");
+			System.out.println("el libro " + titulo + " no existe");
 		}
 
 	}
