@@ -23,6 +23,7 @@ public class ModificarLibro {
 			System.out.println("Introduce el titulo nuevo del libro o Enter sin escribir nada");
 			String tituloNuevo = scan.nextLine();
 			
+			//erabiltzaileak ezer idatzi gabe enter eman badio
 			if(tituloNuevo.length() > 0) {
 				libro.setTitulo(tituloNuevo);
 			}
@@ -30,6 +31,7 @@ public class ModificarLibro {
 			System.out.println("Introduce el autor nuevo del libro o Enter sin escribir nada");
 			String autorNuevo = scan.nextLine();
 			
+			//erabiltzaileak ezer idatzi gabe enter eman badio
 			if(autorNuevo.length() > 0) {
 				libro.setAutor(autorNuevo);
 			}
@@ -37,6 +39,7 @@ public class ModificarLibro {
 			System.out.println("Introduce el numero de paginas nuevo del libro o Enter sin escribir nada");
 			String numPagString = scan.nextLine();
 			
+			//erabiltzaileak ezer idatzi gabe enter eman badio
 			if(numPagString.length() > 0) {
 				int numeroDePaginasNuevo = Integer.parseInt(numPagString);
 				libro.setNumeroPaginas(numeroDePaginasNuevo);
