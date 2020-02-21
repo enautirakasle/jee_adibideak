@@ -37,7 +37,9 @@ public class MainDevolverPrestamo2 {
 			System.out.println("Introduce el id del libro a devolver");
 			int idLibroDevolucion = Integer.parseInt(scan.nextLine());
 			Libro libroDevolucion = mLibro.select(idLibroDevolucion);
+			
 			Prestamo prestamo = mPrestamo.getPrestamoNoDevuelto(libroDevolucion);
+			
 			mPrestamo.finalizar(prestamo);
 			System.out.println(libroDevolucion.getTitulo() + " entregado.");
 			
