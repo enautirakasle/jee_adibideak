@@ -218,4 +218,9 @@ ArrayList<Prestamo> prestamos = new ArrayList<Prestamo>();
 		return null;
 	}
 
+	public ArrayList<Prestamo> getPrestamosNoDevueltos(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

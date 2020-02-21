@@ -61,6 +61,28 @@ public class ModeloLibro extends Conector{
 		return null;
 	}
 	
+	public Libro select(int idLibro) {
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement("select * from libros where id = ?");
+			pst.setInt(1, idLibro);
+			ResultSet rs = pst.executeQuery();
+			
+			if(rs.next()){
+				Libro libro = new Libro();
+				libro.setId(rs.getInt("id"));
+				libro.setTitulo(rs.getString("titulo"));
+				libro.setAutor(rs.getString("autor"));
+				libro.setNumeroPaginas(rs.getInt("num_pag"));
+				
+				return libro;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public void delete(int id) {
 		try {
 			PreparedStatement pst = super.conexion.prepareStatement("delete from libros where id = ?");
@@ -172,4 +194,7 @@ public class ModeloLibro extends Conector{
 		}
 		return false;
 	}
+
+
+	
 }
