@@ -58,6 +58,7 @@ public class MainRealizarPrestamo {
 				prestamo.setFecha(new Date()); //momentuko data
 
 				mPrestamo.insert(prestamo);
+				System.out.println(libro.getTitulo() + " liburua " + socio.getNombre() + " " + socio.getApellido() + "-k hartu du");
 				
 			}else {
 				System.out.println(tituloa + " liburua ez da existitzen");
