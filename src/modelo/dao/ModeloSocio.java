@@ -91,7 +91,30 @@ public class ModeloSocio extends Conector{
 	}
 
 	public Socio select(String dni) {
-		// TODO Auto-generated method stub
+		
+		try {
+			PreparedStatement pst = conexion.prepareStatement("select * from socios where dni=?");
+			pst.setString(1, dni);
+			ResultSet rs = pst.executeQuery();
+			
+			Socio socio;
+			if (rs.next()) {
+				
+				socio = new Socio();
+				socio.setId(rs.getInt("id"));
+				socio.setNombre(rs.getString("nombre"));
+				socio.setApellido(rs.getString("apellido"));
+				socio.setDni(rs.getString("dni"));
+				socio.setDireccion(rs.getString("direccion"));
+				socio.setPoblacion(rs.getString("poblacion"));
+				socio.setProvincia(rs.getString("provincia"));
+				
+				return socio;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 	

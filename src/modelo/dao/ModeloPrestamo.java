@@ -175,4 +175,20 @@ ArrayList<Prestamo> prestamos = new ArrayList<Prestamo>();
 		return prestamos;
 	}
 
+	public void insert(Prestamo prestamo) {
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement("INSERT INTO prestamos(id_libro, id_socio, fecha, devuelto) VALUES (?, ?, ?, ?)");
+			pst.setInt(1, prestamo.getLibro().getId());
+			pst.setInt(2, prestamo.getSocio().getId());
+			pst.setDate(3, new java.sql.Date(prestamo.getFecha().getTime()));
+			pst.setBoolean(4, prestamo.isDevuelto());
+			
+			pst.execute();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 }
