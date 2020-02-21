@@ -21,6 +21,7 @@ public class MainInsertarLibro {
 			System.out.println("Introduce el numero de paginas");
 			int numeroDePaginas = Integer.parseInt(scan.nextLine());
 			
+			//liburu objetua sortu eta gure balioekin bete
 			Libro libro = new Libro();
 			libro.setTitulo(titulo);
 			libro.setAutor(autor);

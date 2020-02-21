@@ -16,6 +16,7 @@ public class MainEliminarLibro {
 		ModeloLibro lm = new ModeloLibro();
 		Libro libro = lm.select(titulo);
 		
+		//libro null bada liburua ez delako aurkitu da
 		if(libro != null) {
 			
 			lm.delete(libro.getId());
