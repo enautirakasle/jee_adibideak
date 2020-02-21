@@ -21,7 +21,7 @@ public class MainEliminarLibro {
 			lm.delete(libro.getId());
 			System.out.println("Libro eliminado");
 		}else {
-			System.out.println("el libro " + titulo + " ya existe");
+			System.out.println("el libro " + titulo + " no existe");
 		}
 
 	}
