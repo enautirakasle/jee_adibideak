@@ -191,4 +191,31 @@ ArrayList<Prestamo> prestamos = new ArrayList<Prestamo>();
 		
 	}
 
+	public Prestamo getPrestamoNoDevuelto(Libro libro) {
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement("select * from prestamos where id_libro=? and devuelto=false");
+			pst.setInt(1, libro.getId());
+			ResultSet rs = pst.executeQuery();
+			
+			if(rs.next()) {
+				Prestamo prestamo = new Prestamo();
+				prestamo.setDevuelto(rs.getBoolean("devuelto"));
+				prestamo.setFecha(rs.getDate("fecha"));
+				
+				Libro libroTemp = new Libro();
+				libroTemp.setId(rs.getInt("id_libro"));
+				prestamo.setLibro(libroTemp);
+				
+				Socio socioTemp = new Socio();
+				socioTemp.setId(rs.getInt("id_socio"));
+				prestamo.setSocio(socioTemp);
+				
+				return prestamo;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }
